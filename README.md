@@ -16,7 +16,7 @@ license: mit
 
 ---
 
-## 🎯 What is EmailTriageEnv?
+##  What is EmailTriageEnv?
 
 EmailTriageEnv is a production-ready RL environment that simulates real-world email management challenges. Built for the **OpenEnv Meta Hackathon**, it enables AI agents to learn sophisticated email triage strategies through structured interaction and reward-based learning.
 
