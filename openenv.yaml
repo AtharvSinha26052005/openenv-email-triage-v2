@@ -1,0 +1,80 @@
+name: email-triage-env
+version: "1.0.0"
+description: >
+  EmailTriageEnv — An OpenEnv environment where an AI agent triages
+  incoming emails by categorizing, prioritizing, and determining
+  appropriate actions for each email or set of emails.
+
+author: OpenEnv Hackathon Team
+tags:
+  - openenv
+  - hackathon
+  - email-triage
+  - llm-agents
+
+observation_space:
+  type: object
+  description: >
+    Structured observation containing the current task description and email context.
+  fields:
+    task_description:
+      type: string
+    current_context:
+      type: string
+    step_number:
+      type: integer
+    max_steps:
+      type: integer
+
+action_space:
+  type: object
+  description: >
+    A single action with action_type and content fields.
+  fields:
+    action_type:
+      type: string
+    content:
+      type: string
+
+reward:
+  type: float
+  range: [0.0, 1.0]
+  description: >
+    Grader score strictly between 0 and 1 (exclusive).
+    0.05 for wrong answer, 0.95 for correct answer.
+
+tasks:
+  - name: easy
+    description: "Single email: categorize and prioritize a customer support inquiry"
+    difficulty: easy
+    max_steps: 5
+    reward_range: [0.0, 1.0]
+    grader: deterministic
+    success_threshold: 0.5
+
+  - name: medium
+    description: "Multiple emails: triage and determine handling priority"
+    difficulty: medium
+    max_steps: 5
+    reward_range: [0.0, 1.0]
+    grader: deterministic_partial_credit
+    success_threshold: 0.5
+
+  - name: hard
+    description: "Complex escalation: handle sensitive complaint with legal risk"
+    difficulty: hard
+    max_steps: 5
+    reward_range: [0.0, 1.0]
+    grader: deterministic_partial_credit
+    success_threshold: 0.5
+
+endpoints:
+  reset: POST /reset
+  step:  POST /step
+  state: POST /state
+  tasks: GET  /tasks
+
+docker:
+  port: 7860
+  build_context: "."
+  dockerfile: Dockerfile
