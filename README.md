@@ -695,9 +695,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 Built with ❤️ for the OpenEnv Meta Hackathon
 
-- **Developer**: Atharv Sinha, Aman Kumar Singh
-- **GitHub**: [@AtharvSinha26052005](https://github.com/AtharvSinha26052005)
-- **Hugging Face**: [@atharv9](https://huggingface.co/atharv9)
+- **Team Name**: Deez Nulls
+- **GitHub**:  https://github.com/AtharvSinha26052005/openenv-email-triage-v2
+- **Hugging Face**: https://huggingface.co/spaces/atharv9/openenv-email-triage-v2
 
 ---
 
